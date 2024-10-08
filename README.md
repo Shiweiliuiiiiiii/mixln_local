@@ -73,6 +73,11 @@ python layer_remove.py \
     --layer_index 1 \
     --save_path ./llama_7b_removed_1
 ```
+### TODO
+
+- [x] Release training codes.
+- [x] Release performace drop codes.
+- [ ] Release angular distance codes.
 
 ### Acknowledgement
 This repository is build upon the [GaLore](https://github.com/jiaweizzhao/GaLore) repositories. Thanks for their great work!
