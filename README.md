@@ -2,7 +2,7 @@
 
 This repo contains the pre-release version of Mix-LN algorithm, proposed by [Mix-LN: Unleashing the Power of Deeper Layers by Combining Pre-LN and Post-LN](https://arxiv.org/abs).
 
-We introduce Mix-LN that combines the benefist of Pre-LN and Post-LN to encourage a more balanced training across layers, thereby improving the overall quality of the model.
+We introduce Mix-LN which combines the benefits of Pre-LN and Post-LN to encourage a more balanced training across layers, thereby improving the overall quality of the model.
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/365b571d-1004-4fff-8878-9af1374da057" alt="Image 2" style="width: 900px; margin: 0 auto;">
@@ -11,6 +11,13 @@ We introduce Mix-LN that combines the benefist of Pre-LN and Post-LN to encourag
 ## Abstract
 
 Large Language Models (LLMs) have achieved remarkable success, yet recent findings reveal that their deeper layers often contribute minimally and can be pruned without affecting overall performance. While some view this as an opportunity for model compression, we identify it as a training shortfall rooted in the widespread use of Pre-Layer Normalization (Pre-LN). We demonstrate that Pre-LN, commonly employed in models like GPT and LLaMA, leads to diminished gradient norms in its deeper layers, reducing their effectiveness. In contrast, Post-Layer Normalization (Post-LN) preserves larger gradient norms in deeper layers but suffers from vanishing gradients in earlier layers. To address this, we introduce Mix-LN, a novel normalization technique that combines the strengths of Pre-LN and Post-LN within the same model. Mix-LN applies Post-LN to the earlier layers and Pre-LN to the deeper layers, ensuring more uniform gradient norms across layers. This allows all parts of the network—both shallow and deep layers—to contribute effectively to training. Extensive experiments with various model sizes demonstrate that Mix-LN consistently outperforms both Pre-LN and Post-LN, promoting more balanced, healthier gradient norms throughout the network, and enhancing the overall quality of LLM pre-training. Furthermore, we demonstrate that models pre-trained with Mix-LN learn better compared to those using Pre-LN or Post-LN during supervised fine-tuning, highlighting the critical importance of high-quality deep layers. By effectively addressing the inefficiencies of deep layers in current LLMs, Mix-LN unlocks their potential, enhancing model capacity without increasing model size.
+
+### TODO
+
+- [x] Release LLM training codes.
+- [x] Release metric of Performace Drop.
+- [ ] Release metric of Angular Distance.
+- [ ] Adding Vision Transformer results.
 
 ## Quick Start
 
@@ -73,14 +80,10 @@ python layer_remove.py \
     --layer_index 1 \
     --save_path ./llama_7b_removed_1
 ```
-### TODO
 
-- [x] Release training codes.
-- [x] Release performace drop codes.
-- [ ] Release angular distance codes.
 
 ### Acknowledgement
-This repository is build upon the [GaLore](https://github.com/jiaweizzhao/GaLore) repositories. Thanks for their great work!
+This repository is built upon the [GaLore](https://github.com/jiaweizzhao/GaLore) repositories. Thanks for their great work!
 
 ## Citation
 If you find our work helpful for your research, please consider citing the following BibTeX entry.
