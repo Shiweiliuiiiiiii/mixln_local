@@ -2,12 +2,13 @@
 norm_type=$1
 learning_rates=$2
 export NORM_TYPE=$norm_type
+export POST_NUM=$3
 
 # Function to run a single training task
 
 echo "Training with learning rate: $learning_rates, norm type: $norm_type on GPU $gpu"
 
-CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node 1 --master_port=29500 torchrun_main.py \
+CUDA_VISIBLE_DEVICES=$4 torchrun --nproc_per_node 1 --master_port=29500 torchrun_main.py \
     --model_config configs/llama_130m.json \
     --lr $learning_rates \
     --batch_size 256 \

@@ -168,7 +168,8 @@ def main(args):
         logger.info(f"{k:30} {v}")
     logger.info("*" * 40)
 
-    data = datasets.load_dataset("allenai/c4", "en", split="train", streaming=True)
+    # data = datasets.load_dataset("allenai/c4", "en", split="train", streaming=True)
+    data = datasets.load_dataset("/defaultShare/SA-1B/hugging_face_backup/allenai___c4/en/0.0.0/1588ec454efa1a09f29cd18ddd04fe05fc8653a2", split="train", streaming=True)
 
     seed_for_shuffle = 32 
     

@@ -10,7 +10,7 @@ echo "Training with learning rate: $learning_rates, norm type: $norm_type on GPU
 CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node 4 --master_port=29500 torchrun_main.py \
     --model_config configs/llama_1b.json \
     --lr $learning_rates \
-    --batch_size 64 \
+    --batch_size 32 \
     --total_batch_size 512 \
     --num_training_steps 100000 \
     --warmup_steps 1000 \
