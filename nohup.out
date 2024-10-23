@@ -1,0 +1,170 @@
+Training with learning rate: 1e-3, norm type: pre on GPU 
+Traceback (most recent call last):
+  File "/home/lius/miniconda3/envs/galore/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.4.1', 'console_scripts', 'torchrun')())
+  File "/home/lius/miniconda3/envs/galore/bin/torchrun", line 25, in importlib_load_entry_point
+    return next(matches).load()
+  File "/home/lius/miniconda3/envs/galore/lib/python3.8/importlib/metadata.py", line 77, in load
+    module = import_module(match.group('module'))
+  File "/home/lius/miniconda3/envs/galore/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 961, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 961, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/lius/miniconda3/envs/galore/lib/python3.8/site-packages/torch/__init__.py", line 2143, in <module>
+    from . import _meta_registrations
+  File "/home/lius/miniconda3/envs/galore/lib/python3.8/site-packages/torch/_meta_registrations.py", line 6178, in <module>
+    activate_meta()
+  File "/home/lius/miniconda3/envs/galore/lib/python3.8/site-packages/torch/_meta_registrations.py", line 6175, in activate_meta
+    _meta_lib_dont_use_me_use_register_meta.impl(op_overload, fn)
+  File "/home/lius/miniconda3/envs/galore/lib/python3.8/site-packages/torch/library.py", line 255, in impl
+    self.m.impl(name, dispatch_key if dispatch_key != "" else "CompositeImplicitAutograd", fn, with_keyset)
+KeyboardInterrupt
+Training with learning rate: 1e-3, norm type: post on GPU 
+Starting script
+2024-10-23 00:28:36.525 | INFO     | __main__:main:141 - Global rank 0, local rank 0, device: 0
+2024-10-23 00:28:36.530 | INFO     | __main__:main:145 - Process group initialized
+wandb: Using wandb-core as the SDK backend. Please refer to https://wandb.me/wandb-core for more information.
+wandb: Currently logged in as: yinluu-cn. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.18.3
+wandb: Run data is saved locally in /home/lius/project/MixLN/wandb/run-20241023_002837-qpa8in9s
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run 350m_res_post_lr1e-3
+wandb: ⭐️ View project at https://wandb.ai/yinluu-cn/galore-c4-7b
+wandb: 🚀 View run at https://wandb.ai/yinluu-cn/galore-c4-7b/runs/qpa8in9s
+2024-10-23 00:28:37.650 | INFO     | __main__:main:164 - Using dist with rank 0 (only rank 0 will log)
+2024-10-23 00:28:37.651 | INFO     | __main__:main:165 - ****************************************
+2024-10-23 00:28:37.652 | INFO     | __main__:main:166 - Starting training with the arguments
+2024-10-23 00:28:37.653 | INFO     | __main__:main:168 - model_config                   configs/llama_350m.json
+2024-10-23 00:28:37.653 | INFO     | __main__:main:168 - use_hf_model                   False
+2024-10-23 00:28:37.655 | INFO     | __main__:main:168 - continue_from                  None
+2024-10-23 00:28:37.655 | INFO     | __main__:main:168 - batch_size                     128
+2024-10-23 00:28:37.657 | INFO     | __main__:main:168 - gradient_accumulation          4
+2024-10-23 00:28:37.657 | INFO     | __main__:main:168 - total_batch_size               512
+2024-10-23 00:28:37.659 | INFO     | __main__:main:168 - max_length                     256
+2024-10-23 00:28:37.660 | INFO     | __main__:main:168 - optimizer                      adam
+2024-10-23 00:28:37.661 | INFO     | __main__:main:168 - lr                             0.001
+2024-10-23 00:28:37.661 | INFO     | __main__:main:168 - scheduler                      cosine
+2024-10-23 00:28:37.663 | INFO     | __main__:main:168 - min_lr_ratio                   0.1
+2024-10-23 00:28:37.664 | INFO     | __main__:main:168 - activation_checkpointing       False
+2024-10-23 00:28:37.665 | INFO     | __main__:main:168 - weight_decay                   0.0
+2024-10-23 00:28:37.666 | INFO     | __main__:main:168 - warmup_steps                   6000
+2024-10-23 00:28:37.666 | INFO     | __main__:main:168 - eval_every                     1000
+2024-10-23 00:28:37.668 | INFO     | __main__:main:168 - num_training_steps             60000
+2024-10-23 00:28:37.669 | INFO     | __main__:main:168 - max_train_tokens               None
+2024-10-23 00:28:37.670 | INFO     | __main__:main:168 - save_every                     10000
+2024-10-23 00:28:37.670 | INFO     | __main__:main:168 - save_dir                       350m_res_post_lr1e-3
+2024-10-23 00:28:37.671 | INFO     | __main__:main:168 - tags                           None
+2024-10-23 00:28:37.672 | INFO     | __main__:main:168 - dtype                          bfloat16
+2024-10-23 00:28:37.673 | INFO     | __main__:main:168 - workers                        8
+2024-10-23 00:28:37.674 | INFO     | __main__:main:168 - seed                           0
+2024-10-23 00:28:37.675 | INFO     | __main__:main:168 - name                           test
+2024-10-23 00:28:37.677 | INFO     | __main__:main:168 - grad_clipping                  0.0
+2024-10-23 00:28:37.677 | INFO     | __main__:main:168 - run_name                       350m_res_post_lr1e-3
+2024-10-23 00:28:37.678 | INFO     | __main__:main:168 - beta1                          0.0
+2024-10-23 00:28:37.679 | INFO     | __main__:main:168 - rank                           128
+2024-10-23 00:28:37.680 | INFO     | __main__:main:168 - update_proj_gap                50
+2024-10-23 00:28:37.681 | INFO     | __main__:main:168 - galore_scale                   1.0
+2024-10-23 00:28:37.681 | INFO     | __main__:main:168 - proj_type                      std
+2024-10-23 00:28:37.682 | INFO     | __main__:main:168 - single_gpu                     False
+2024-10-23 00:28:37.683 | INFO     | __main__:main:169 - ****************************************
+2024-10-23 00:28:51.481 | INFO     | __main__:main:176 - Shuffling data with seed 32
+/home/lius/miniconda3/envs/galore/lib/python3.8/site-packages/huggingface_hub/file_download.py:1142: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+Hi, 🙍‍♂️️the norm type is: post
+wandb: WARNING Saving files without folders. If you want to preserve subdirectories pass base_path to wandb.save, i.e. wandb.save("/mnt/folder/file.h5", base_path="/mnt")
+Update steps:   0%|                                   | 0/60000 [00:00<?, ?it/s]2024-10-23 00:28:56.474 | INFO     | __main__:main:291 - 
+LlamaForCausalLM(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(32000, 1024, padding_idx=31999)
+    (layers): ModuleList(
+      (0-23): 24 x LlamaDecoderLayer(
+        (self_attn): LlamaAttention(
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=False)
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=False)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=False)
+          (o_proj): Linear(in_features=1024, out_features=1024, bias=False)
+          (rotary_emb): LlamaRotaryEmbedding()
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=1024, out_features=2736, bias=False)
+          (down_proj): Linear(in_features=2736, out_features=1024, bias=False)
+          (up_proj): Linear(in_features=1024, out_features=2736, bias=False)
+          (act_fn): SiLUActivation()
+        )
+        (post_feedforward_layernorm): LlamaRMSNorm()
+        (post_attention_layernorm): LlamaRMSNorm()
+      )
+    )
+    (norm): LlamaRMSNorm()
+  )
+  (lm_head): Linear(in_features=1024, out_features=32000, bias=False)
+)
+
+2024-10-23 00:28:56.476 | INFO     | __main__:main:292 - Total params: 367.97M
+2024-10-23 00:28:56.478 | INFO     | __main__:main:293 - Trainable params: 367.97M
+2024-10-23 00:28:56.479 | INFO     | __main__:main:296 - Saving model to 350m_res_post_lr1e-3 every 10000 update steps
+Update steps:   0%|                       | 1/60000 [00:07<117:56:08,  7.08s/it]Update steps:   0%|                        | 2/60000 [00:08<63:52:10,  3.83s/it]Update steps:   0%|                        | 3/60000 [00:10<46:18:50,  2.78s/it]Update steps:   0%|                        | 4/60000 [00:11<38:08:22,  2.29s/it]Update steps:   0%|                        | 5/60000 [00:13<33:35:48,  2.02s/it]Update steps:   0%|                        | 6/60000 [00:14<30:53:57,  1.85s/it]Update steps:   0%|                        | 7/60000 [00:16<29:11:56,  1.75s/it]Update steps:   0%|                        | 8/60000 [00:17<28:06:39,  1.69s/it]Update steps:   0%|                        | 9/60000 [00:19<27:21:39,  1.64s/it]Update steps:   0%|                       | 10/60000 [00:20<26:54:17,  1.61s/it]Update steps:   0%|                       | 11/60000 [00:22<26:33:27,  1.59s/it]Update steps:   0%|                       | 12/60000 [00:24<26:18:44,  1.58s/it]Update steps:   0%|                       | 13/60000 [00:25<26:09:13,  1.57s/it]Update steps:   0%|                       | 14/60000 [00:27<26:02:37,  1.56s/it]Update steps:   0%|                       | 15/60000 [00:28<25:58:11,  1.56s/it]Update steps:   0%|                       | 16/60000 [00:30<25:57:47,  1.56s/it]Update steps:   0%|                       | 17/60000 [00:31<25:56:44,  1.56s/it]Update steps:   0%|                       | 18/60000 [00:33<26:22:29,  1.58s/it]Update steps:   0%|                       | 19/60000 [00:35<26:21:18,  1.58s/it]Update steps:   0%|                       | 20/60000 [00:36<26:14:24,  1.57s/it]Update steps:   0%|                       | 21/60000 [00:38<26:08:39,  1.57s/it]Update steps:   0%|                       | 22/60000 [00:39<26:24:20,  1.58s/it]Update steps:   0%|                       | 23/60000 [00:41<26:46:43,  1.61s/it]Update steps:   0%|                       | 24/60000 [00:42<26:32:46,  1.59s/it]Update steps:   0%|                       | 25/60000 [00:44<26:25:54,  1.59s/it]Update steps:   0%|                       | 26/60000 [00:46<26:17:52,  1.58s/it]Update steps:   0%|                       | 27/60000 [00:47<26:11:50,  1.57s/it]Update steps:   0%|                       | 28/60000 [00:49<26:08:14,  1.57s/it]Update steps:   0%|                       | 29/60000 [00:50<26:06:11,  1.57s/it]Update steps:   0%|                       | 30/60000 [00:52<26:06:11,  1.57s/it]Update steps:   0%|                       | 31/60000 [00:53<26:04:20,  1.57s/it]Update steps:   0%|                       | 32/60000 [00:55<26:02:45,  1.56s/it]Update steps:   0%|                       | 33/60000 [00:57<26:01:27,  1.56s/it]Update steps:   0%|                       | 34/60000 [00:58<26:02:35,  1.56s/it]Update steps:   0%|                       | 35/60000 [01:00<26:03:21,  1.56s/it]E1023 00:29:58.030830 127031115154944 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: -9) local_rank: 0 (pid: 153257) of binary: /home/lius/miniconda3/envs/galore/bin/python
+Traceback (most recent call last):
+  File "/home/lius/miniconda3/envs/galore/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.4.1', 'console_scripts', 'torchrun')())
+  File "/home/lius/miniconda3/envs/galore/lib/python3.8/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+    return f(*args, **kwargs)
+  File "/home/lius/miniconda3/envs/galore/lib/python3.8/site-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/home/lius/miniconda3/envs/galore/lib/python3.8/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/home/lius/miniconda3/envs/galore/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/lius/miniconda3/envs/galore/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+=======================================================
+torchrun_main.py FAILED
+-------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+-------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-10-23_00:29:58
+  host      : morph.maths.ox.ac.uk
+  rank      : 0 (local_rank: 0)
+  exitcode  : -9 (pid: 153257)
+  error_file: <N/A>
+  traceback : Signal 9 (SIGKILL) received by PID 153257
+=======================================================

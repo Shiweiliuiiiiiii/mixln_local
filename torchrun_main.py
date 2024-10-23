@@ -54,7 +54,7 @@ def parse_args(args):
     parser.add_argument("--max_train_tokens", type=training_utils.max_train_tokens_to_number, default=None,
                         help="Number of tokens to train on. Overwrites num_training_steps. "
                              "You can use M and B suffixes, e.g. 100M or 1B.")
-    parser.add_argument("--save_every", type=int, default=10_000)
+    parser.add_argument("--save_every", type=int, default=1000000000)
     parser.add_argument("--save_dir", type=str, default=None)
     parser.add_argument("--tags", type=str, default=None)
     parser.add_argument("--dtype", type=str, default="bfloat16" if torch.cuda.is_bf16_supported() else "float32")
@@ -168,8 +168,8 @@ def main(args):
         logger.info(f"{k:30} {v}")
     logger.info("*" * 40)
 
-    # data = datasets.load_dataset("allenai/c4", "en", split="train", streaming=True)
-    data = datasets.load_dataset("/defaultShare/SA-1B/hugging_face_backup/allenai___c4/en/0.0.0/1588ec454efa1a09f29cd18ddd04fe05fc8653a2", split="train", streaming=True)
+    data = datasets.load_dataset("allenai/c4", "en", split="train", streaming=True)
+    # data = datasets.load_dataset("/defaultShare/SA-1B/hugging_face_backup/allenai___c4/en/0.0.0/1588ec454efa1a09f29cd18ddd04fe05fc8653a2", split="train", streaming=True)
 
     seed_for_shuffle = 32 
     
