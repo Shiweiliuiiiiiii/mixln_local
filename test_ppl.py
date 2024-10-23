@@ -9,13 +9,13 @@ from peft_pretraining import training_utils
 from loguru import logger
 from peft_pretraining.modeling_llama import LlamaForCausalLM
 
-def evaluate_ppl(max_length=1024, batch_size=128, device="cuda:0", del_index=-1):
+def evaluate_ppl(max_length=256, batch_size=128, device="cuda:0", del_index=-1):
     # Load model
-    model = LlamaForCausalLM.from_pretrained("Luuyin/1B_mixnorm_50000", torch_dtype=torch.float16)
+    model = LlamaForCausalLM.from_pretrained("/scratch/shiwei/shiwei/llama1b/mixln_1b_1_3/", torch_dtype=torch.float16)
     model = model.to(device)
     model.eval()
     
-    model_back = LlamaForCausalLM.from_pretrained("Luuyin/1B_mixnorm_50000", torch_dtype=torch.float16)
+    model_back = LlamaForCausalLM.from_pretrained("/scratch/shiwei/shiwei/llama1b/mixln_1b_1_3/", torch_dtype=torch.float16)
     model_back = model_back.to(device)
 
     # Load tokenizer
