@@ -9,7 +9,7 @@ from peft_pretraining import training_utils
 from loguru import logger
 from peft_pretraining.modeling_llama import LlamaForCausalLM
 
-def evaluate_ppl(max_length=1024, batch_size=16, device="cuda:0", del_index=-1):
+def evaluate_ppl(max_length=1024, batch_size=32, device="cuda:0", del_index=-1):
     # Load model
     model = LlamaForCausalLM.from_pretrained("/mi/share/scratch/shiwei/mixln_1b_1_3/", torch_dtype=torch.float16)
     model = model.to(device)
