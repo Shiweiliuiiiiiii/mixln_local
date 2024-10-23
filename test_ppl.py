@@ -11,11 +11,11 @@ from peft_pretraining.modeling_llama import LlamaForCausalLM
 
 def evaluate_ppl(max_length=1024, batch_size=16, device="cuda:0", del_index=-1):
     # Load model
-    model = LlamaForCausalLM.from_pretrained("/defaultShare/SA-1B/lpx_workspace/mixln-1b", torch_dtype=torch.float16)
+    model = LlamaForCausalLM.from_pretrained("/home/lius/project/MIXLN/1b_res_post_pre_lr5e-4_4layer_of_post/model_50001", torch_dtype=torch.float16)
     model = model.to(device)
     model.eval()
     
-    model_back = LlamaForCausalLM.from_pretrained("/defaultShare/SA-1B/lpx_workspace/mixln-1b", torch_dtype=torch.float16)
+    model_back = LlamaForCausalLM.from_pretrained("/home/lius/project/MIXLN/1b_res_post_pre_lr5e-4_4layer_of_post/model_50001", torch_dtype=torch.float16)
     model_back = model_back.to(device)
 
     # Load tokenizer
