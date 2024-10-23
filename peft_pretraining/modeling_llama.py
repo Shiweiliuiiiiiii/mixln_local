@@ -268,7 +268,7 @@ class LlamaDecoderLayer(nn.Module):
         print('Hi, 🙍‍♂️️the norm type is:', norm_type)
         scale_attn_weights = False
         scale_mlp_output = False
-        self.max_post_norm_layer = int(os.getenv('POST_NUM', '1'))
+        self.max_post_norm_layer = int(self.layer_nums // 4)
 
         if norm_type == 'scale_post_pre':
             if self.layer_index < self.max_post_norm_layer:
